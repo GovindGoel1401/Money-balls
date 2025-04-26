@@ -1,0 +1,25 @@
+# Requirements for Quasar + MongoDB Project
+
+# Node.js and Package Managers
+Node.js version: >=18.x (Recommended: 20.x or 22.x)
+npm version: >=6.13.4
+(Optional) Yarn version: >=1.21.1
+
+# Frontend Frameworks and Libraries
+Vue.js version: 3.4.18
+Quasar Framework version: 2.16.0
+Pinia version: 3.0.1 (state management)
+Vue Router version: 4.0.0 (routing)
+@quasar/extras version: 1.16.4 (icons/fonts)
+
+# Development Tools
+@quasar/app-vite version: 2.1.0 (Quasar CLI with Vite)
+Autoprefixer version: 10.4.2
+PostCSS version: 8.4.14
+
+# Backend and Database
+MongoDB (compatible server)
+MongoDB Node.js Driver (or Mongoose if used)
+
+# System Requirements
+Operating System: Windows, Linux, or MacOS
