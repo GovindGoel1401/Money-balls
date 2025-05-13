@@ -1,24 +1,23 @@
-# Use Node.js LTS base image
-FROM node:20-alpine
+# Stage 1: Build
+FROM node:18-alpine AS builder
 
-# Set working directory
 WORKDIR /app
 
-# Copy package files and install dependencies
 COPY package*.json ./
 RUN npm install
 
-# Copy the rest of the app
 COPY . .
-
-# Build the Quasar app for production
 RUN npm run build
 
-# Serve with a lightweight static server
+# Stage 2: Serve
+FROM node:18-alpine
+
+WORKDIR /app
+
 RUN npm install -g serve
 
-# Expose port (Quasar apps typically run on 3000 or 4173 if using Vite)
+COPY --from=builder /app/dist/spa /app
+
 EXPOSE 8000
 
-# Start the app
-CMD ["serve", "dist/spa"]
+CMD ["serve", "-s", ".", "-l", "8000"]

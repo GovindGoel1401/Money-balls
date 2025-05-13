@@ -7,10 +7,11 @@
   "type": "module",
   "private": true,
   "scripts": {
+    "start": "serve dist/spa",
     "test": "echo \"No test specified\" && exit 0",
     "dev": "quasar dev",
     "build": "quasar build",
-    "postinstall": "quasar prepare"
+    "postinstall": ""
   },
   "dependencies": {
     "pinia": "^3.0.1",

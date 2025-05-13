@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3'
 
 services:
   frontend:
@@ -6,26 +6,19 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "9000:9000"
+      - "8000:8000"
     depends_on:
-      - mongo
+      - mongodb
     environment:
-      - NODE_ENV=production
-    networks:
-      - app-network
+      - MONGO_URL=mongodb://mongodb:27017/mydatabase  # use same DB name in code
 
-  mongo:
-    image: mongo:6.0
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
     ports:
       - "27017:27017"
     volumes:
       - mongo-data:/data/db
-    networks:
-      - app-network
 
 volumes:
   mongo-data:
-
-networks:
-  app-network:
-    driver: bridge
